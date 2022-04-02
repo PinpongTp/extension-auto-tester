@@ -1,0 +1,53 @@
+@import "src/style/App.scss";
+
+.card {
+    display: grid;
+    grid-template-columns: 3fr 9fr;
+    border: 1px solid #333;
+    border-radius: 5px;
+    // padding: 4px 8px;
+}
+
+.card > *{
+    padding: 4px 8px;
+}
+
+.card .right-group-btn {
+    border-right: 1px solid $back;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.card .right-group-btn > svg {
+    font-size: 30px;
+    color: $back;
+}
+
+.card .right-group-btn:hover > svg {
+    color: $white;
+    padding: 4px;
+}
+
+.card .right-group-btn:hover {
+    background-color: $yellow;
+}
+
+.card .card-content {
+    cursor: pointer;
+}
+
+.card .card-content:hover {
+    background-color: $yellow;
+}
+
+.card > *:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.card > *:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}

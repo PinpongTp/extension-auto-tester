@@ -14,10 +14,13 @@ function App() {
       <Header />
       <div className="context">
         <Routes>
-          <Route path="/" element={<Fill />} />
+          <Route path="" element={<Fill />} />
           <Route path="random" element={<Random />} />
           <Route path="setting" element={<Setting />} />
         </Routes>
+      </div>
+      <div id="footer">
+        <p className="copyright">Copyright © 2022 Pinpong.co</p>
       </div>
     </div>
   );

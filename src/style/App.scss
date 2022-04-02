@@ -16,10 +16,11 @@ body {
 }
 #app {
   width: 280px;
-  height: 250px;
+  height: 330px;
   padding: 0 8px;
   background-color: $white;
   margin: auto;
+  position: relative;
 }
 
 #app.width {
@@ -84,4 +85,19 @@ a {
   animation-delay: 0.8s;
   animation-duration: 0.8s;
   animation-fill-mode: forwards;
+}
+
+/* footer */
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  border-top: solid 1px $back;
+  width: calc(100% - 16px);
+  padding: 6px;
+}
+
+.copyright {
+  text-align: center;
+  font-size: 10px;
 }

@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useChromeStorageLocal } from "use-chrome-storage";
+import { Card } from "../../component/cards/card/Card";
 import { useStorage } from "../../hook/useStorage";
+import "./random.scss";
 const RandExp = require("randexp");
 
 export const Random = () => {
   //   const [idCard, setIdCard] = useState("00000000000000");
-  const [idCard, setIdCard] = useStorage("idCard", "0000000000000")
+  const [idCard, setIdCard] = useStorage("idCard", "0000000000000");
   const [random, setRandom] = useStorage("regex", "XXXXXXXXX");
   //   const [random, setRandom] = useState("");
 
@@ -32,7 +34,7 @@ export const Random = () => {
   };
 
   const randomRegex = () => {
-    const regex = /hello[a-z]{10}/i;
+    const regex = /Pinpong[a-z]{3} (Tongpat|Pattong|Pinpong)/i;
     const payload = new RandExp(regex).gen();
     setRandom(payload);
     copy(payload);
@@ -42,36 +44,24 @@ export const Random = () => {
 
   return (
     <div id="random">
-      <ul>
-        <li>
-          <a onClick={randomIdCard} className="btn">
-            random IdCard
-          </a>
-          <br />
-          <a
-            className="copy"
-            onClick={() => {
-              copy(idCard);
-            }}
-          >
-            {idCard}
-          </a>
-        </li>
-        <li>
-          <a onClick={randomRegex} className="btn">
-            random
-          </a>
-          <br />
-          <a
-            className="copy"
-            onClick={() => {
-              copy(random);
-            }}
-          >
-            {random}
-          </a>
-        </li>
-      </ul>
+      <Card
+        onCopy={() => {
+          copy(idCard);
+        }}
+        onRandom={randomIdCard}
+        randomName={"random IdCard"}
+        randomValue={idCard}
+      />
+
+      <Card
+        onCopy={() => {
+          copy(random);
+        }}
+        onRandom={randomRegex}
+        randomName={"random"}
+        randomValue={random}
+      />
+
     </div>
   );
 };
