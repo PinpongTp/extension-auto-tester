@@ -1,0 +1,87 @@
+$back: #23203b;
+$sky: #bae8e8;
+$yellow: #ffd803;
+$white: #fff;
+
+@import './font.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $back;
+}
+#app {
+  width: 280px;
+  height: 250px;
+  padding: 0 8px;
+  background-color: $white;
+  margin: auto;
+}
+
+#app.width {
+  width: 400px;
+}
+
+/* reuse */
+
+a {
+  cursor: pointer;
+}
+
+.btn {
+  display: inline-block;
+  background-color: $white;
+  color: $back;
+  padding: 8px 16px;
+  border: 1px solid $back;
+  border-radius: 5px;
+  margin: 6px;
+}
+
+.btn:hover {
+  background-color: $yellow;
+}
+
+/* context */
+
+.context > div {
+  display: block;
+}
+
+.context li {
+  text-align: center;
+}
+
+/* context random */
+@keyframes copied {
+  from {
+    opacity: 0.8;
+  }
+  to {
+    opacity: 0;
+  }
+}
+.copy {
+  position: relative;
+}
+.copy.copied::before {
+  content: "copied";
+  display: block;
+  background-color: black;
+  color: #fff;
+  position: absolute;
+  padding: 4px;
+  font-weight: 100;
+  font-size: 12px;
+  opacity: 0.8;
+  right: calc(50% - 20px);
+  top: calc(50% - 12px);
+  animation-name: copied;
+  animation-delay: 0.8s;
+  animation-duration: 0.8s;
+  animation-fill-mode: forwards;
+}

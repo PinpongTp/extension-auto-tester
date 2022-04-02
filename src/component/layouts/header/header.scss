@@ -1,0 +1,41 @@
+@import "src/style/App.scss";
+
+/* header */
+
+.header {
+  padding: 8px;
+  text-align: right;
+  color: #23203b;
+}
+
+.header h1 {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* nav */
+
+.nav {
+  display: flex;
+  padding: 6px 0;
+  border-top: 1px solid $back;
+  border-bottom: 1px solid $back;
+  justify-content: space-around;
+  gap: 4px;
+}
+
+.nav a {
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+  color: $back;
+  border-radius: 5px;
+}
+
+.nav a.active {
+  background-color: $sky;
+}
+
+.nav a:hover {
+  background-color: $yellow;
+}
