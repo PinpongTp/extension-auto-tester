@@ -1,4 +1,5 @@
 import React from "react";
+import { Footer } from "../../component/layouts/footer/Footer";
 
 export const Fill = () => {
   return (
@@ -8,6 +9,7 @@ export const Fill = () => {
           <a>fill</a>
         </li>
       </ul>
+      <Footer />
     </div>
   );
 };

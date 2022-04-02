@@ -1,4 +1,5 @@
 import React from "react";
+import { Footer } from "../../component/layouts/footer/Footer";
 
 export const Setting = () => {
     return (
@@ -8,6 +9,7 @@ export const Setting = () => {
             <a>setting</a>
           </li>
         </ul>
+        <Footer />
       </div>
     );
   };

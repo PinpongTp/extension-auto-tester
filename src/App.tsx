@@ -19,9 +19,6 @@ function App() {
           <Route path="setting" element={<Setting />} />
         </Routes>
       </div>
-      <div id="footer">
-        <p className="copyright">Copyright © 2022 Pinpong.co</p>
-      </div>
     </div>
   );
 }

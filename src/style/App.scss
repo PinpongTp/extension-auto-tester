@@ -1,8 +1,4 @@
-$back: #23203b;
-$sky: #bae8e8;
-$yellow: #ffd803;
-$white: #fff;
-
+@import './variable.scss';
 @import './font.scss';
 
 * {
@@ -95,9 +91,10 @@ a {
   border-top: solid 1px $back;
   width: calc(100% - 16px);
   padding: 6px;
+  display: flex;
+  justify-content: space-around;
 }
 
 .copyright {
-  text-align: center;
   font-size: 10px;
 }

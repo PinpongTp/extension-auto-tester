@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useChromeStorageLocal } from "use-chrome-storage";
 import { Card } from "../../component/cards/card/Card";
+import { Footer } from "../../component/layouts/footer/Footer";
 import { useStorage } from "../../hook/useStorage";
 import "./random.scss";
 const RandExp = require("randexp");
@@ -40,6 +41,15 @@ export const Random = () => {
     copy(payload);
   };
 
+  const menu = [
+    {
+      title: "edit",
+      callback: () => {
+        console.log("edit");
+      },
+    },
+  ];
+
   //http://fent.github.io/randexp.js/
 
   return (
@@ -62,6 +72,7 @@ export const Random = () => {
         randomValue={random}
       />
 
+      <Footer menu={menu} />
     </div>
   );
 };
