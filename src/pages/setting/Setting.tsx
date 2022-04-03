@@ -5,8 +5,14 @@ export const Setting = () => {
     return (
       <div id="setting">
         <ul>
+        <li>
+            <a>reset all setting</a>
+          </li>
           <li>
-            <a>setting</a>
+            <a>url</a>
+          </li>
+          <li>
+            <a>my web site</a>
           </li>
         </ul>
         <Footer />

@@ -15,7 +15,8 @@
     "storage",
     "activeTab",
     "scripting",
-    "tabs"
+    "tabs",
+    "declarativeContent"
   ],
   "host_permissions": [
     "<all_urls>"

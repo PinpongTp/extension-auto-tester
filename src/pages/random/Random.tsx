@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useChromeStorageLocal } from "use-chrome-storage";
-import { Card } from "../../component/cards/card/Card";
+import { CardRandom } from "../../component/cards/CardRandom/CardRandom";
 import { Footer } from "../../component/layouts/footer/Footer";
 import { useStorage } from "../../hook/useStorage";
 import "./random.scss";
+import { randomService } from "../../service/random.service";
 const RandExp = require("randexp");
 
 export const Random = () => {
@@ -17,26 +18,13 @@ export const Random = () => {
   };
 
   const randomIdCard = () => {
-    const random = Math.floor(100000000000 + Math.random() * 900000000000);
-    let sum = 0;
-    random
-      .toString()
-      .split("")
-      .reverse()
-      .forEach((number, index) => {
-        sum += +number * (index + 2);
-      });
-    let suffix = 11 - (sum % 11);
-    if (suffix > 9) suffix -= 10;
-    let payload = `${random}${suffix}`;
-
+    let payload = randomService('th_citizen_id');
     setIdCard(payload);
     copy(payload);
   };
 
   const randomRegex = () => {
-    const regex = /Pinpong[a-z]{3} (Tongpat|Pattong|Pinpong)/i;
-    const payload = new RandExp(regex).gen();
+    let payload = randomService('regexp', 'Pinpong[a-z]{3} (Tongpat|Pattong|Pinpong)')
     setRandom(payload);
     copy(payload);
   };
@@ -54,7 +42,7 @@ export const Random = () => {
 
   return (
     <div id="random">
-      <Card
+      <CardRandom
         onCopy={() => {
           copy(idCard);
         }}
@@ -63,7 +51,7 @@ export const Random = () => {
         randomValue={idCard}
       />
 
-      <Card
+      <CardRandom
         onCopy={() => {
           copy(random);
         }}

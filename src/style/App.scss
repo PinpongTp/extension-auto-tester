@@ -1,5 +1,5 @@
-@import './variable.scss';
-@import './font.scss';
+@import "./variable.scss";
+@import "./font.scss";
 
 * {
   margin: 0;
@@ -50,7 +50,16 @@ a {
 }
 
 .context li {
-  text-align: center;
+  padding: 6px 0;
+}
+
+.context li a {
+  padding: 0px 8px;
+  border-radius: 5px;
+}
+
+.context li a:hover {
+  background-color: $yellow;
 }
 
 /* context random */
@@ -90,11 +99,31 @@ a {
   bottom: 0;
   border-top: solid 1px $back;
   width: calc(100% - 16px);
-  padding: 6px;
   display: flex;
   justify-content: space-around;
+  padding: 6px 0;
+  gap: 4px;
+}
+
+#footer a {
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+  color: #23203b;
+  border-radius: 5px;
+}
+
+#footer a:hover {
+  background-color: $yellow;
 }
 
 .copyright {
   font-size: 10px;
+}
+
+
+// setting
+
+#setting {
+  padding: 4px;
 }
