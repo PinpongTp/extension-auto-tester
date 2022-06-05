@@ -1,3 +1,4 @@
+import { connect } from "http2";
 import React, { useState } from "react";
 import { CardFill } from "../../component/cards/CardFill/CardFill";
 import { Footer } from "../../component/layouts/footer/Footer";
@@ -7,34 +8,74 @@ import "./fill.scss";
 export const Fill = () => {
   const fillSet = [
     {
-      name: "SPW register",
+      name: "SPW register test",
       fill: [
         {
-          inputName: "firstname_en",
+          inputName: "ชื่อ (อังกฤษ)",
           random: {
             type: "regexp",
             option: "Pinpong",
           },
         },
         {
-          inputName: "lastname_en",
+          inputName: "นามสกุล (อังกฤษ)",
           random: {
             type: "regexp",
             option: "Tongpat",
           },
         },
         {
-          inputName: "citizen_id",
+          inputName: "เลขบัตรประชาชน",
           random: {
             type: "th_citizen_id",
             option: null,
           },
         },
         {
-          inputName: "mobile_no",
+          inputName: "เบอร์โทรศัพท์",
           random: {
             type: "regexp",
             option: "0815967897",
+          },
+        },
+      ],
+    },
+    {
+      name: "SPW register step 2",
+      fill: [
+        {
+          inputName: "address",
+          random: {
+            type: "regexp",
+            option: "Test",
+          },
+        },
+        {
+          inputName: "จังหวัด",
+          random: {
+            type: "regexp",
+            option: "กระบี่",
+          },
+        },
+        {
+          inputName: "อำเภอ",
+          random: {
+            type: "regexp",
+            option: "ลำทับ",
+          },
+        },
+        {
+          inputName: "ตำบล",
+          random: {
+            type: "regexp",
+            option: "ดินอุดม",
+          },
+        },
+        {
+          inputName: "sub_district",
+          random: {
+            type: "regexp",
+            option: "Chanuman",
           },
         },
       ],
@@ -69,7 +110,7 @@ export const Fill = () => {
         if (!tabId) return;
 
         console.log("run script");
-        // todo 
+        // todo
         // not fill read only
         // not fill disable
 
@@ -78,12 +119,48 @@ export const Fill = () => {
             target: { tabId: tabId, allFrames: true },
             func: (inputName: string, value: string) => {
               let inputs = document.querySelectorAll<HTMLElement>(
-                `[name=${inputName}]`
+                `[name="${inputName}"] , [id="${inputName}"]`
               );
+
+              let labels = document.querySelectorAll<HTMLElement>(`label`);
+              labels.forEach((label) => {
+                if (label.innerHTML.includes(inputName)) {
+                  // input child parent label
+                  let elements = label.parentElement?.childNodes;
+                  elements &&
+                    elements.forEach((element) => {
+                      if (element.nodeName === "INPUT") {
+                        (element as HTMLInputElement).value = value;
+                        element.dispatchEvent(
+                          new Event("input", {
+                            bubbles: true,
+                            cancelable: true,
+                          })
+                        );
+
+                        element.dispatchEvent(
+                          new Event("change", {
+                            bubbles: true,
+                            cancelable: true,
+                          })
+                        );
+                      }
+                    });
+                }
+                // todo add input child label 
+              });
+
               inputs.forEach((input) => {
                 (input as HTMLInputElement).value = value;
                 input.dispatchEvent(
                   new Event("input", {
+                    bubbles: true,
+                    cancelable: true,
+                  })
+                );
+
+                input.dispatchEvent(
+                  new Event("change", {
                     bubbles: true,
                     cancelable: true,
                   })

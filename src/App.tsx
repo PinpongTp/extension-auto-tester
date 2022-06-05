@@ -17,7 +17,7 @@ function App() {
           <Route path="/" element={<Fill />} />
           <Route path="random" element={<Random />} />
           <Route path="setting" element={<Setting />} />
-          <Route path="*" element={<Navigate to="random" replace />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>
     </div>
